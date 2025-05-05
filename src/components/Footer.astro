@@ -22,9 +22,11 @@ const socialLinks: SocialLink[] = [
     icon: "twitter",
   },
 ];
+
+const currentYear = new Date().getFullYear();
 ---
 
-<footer class="bg-[#101010] text-white py-12">
+<footer class="text-white py-12">
   <div class="container mx-auto px-4">
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       <!-- À propos -->
@@ -90,8 +92,19 @@ const socialLinks: SocialLink[] = [
 
     <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
       <p>
-        &copy; {new Date().getFullYear()} Code by Nayru. Tous droits réservés.
+        &copy; {currentYear} Code by Nayru. Tous droits réservés.
       </p>
     </div>
   </div>
 </footer>
+
+<div class="w-screen text-center overflow-hidden">
+  <div
+    class="text-sm font-extralight p-4 text-center text-surface dark:text-white"
+  >
+    ©{currentYear} Copyright :
+    <a href="https://ryan-pina.com/" rel="noopener noreferrer">
+      Ryan Pina-Silasse</a
+    >
+  </div>
+</div>

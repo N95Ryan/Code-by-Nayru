@@ -9,7 +9,9 @@
     "astro": "astro"
   },
   "dependencies": {
-    "astro": "^5.7.10"
+    "astro": "^5.7.10",
+    "react-icons": "^5.5.0",
+    "tailwindcss-animated": "^2.0.0"
   },
   "devDependencies": {
     "@astrojs/tailwind": "^5.1.0",
