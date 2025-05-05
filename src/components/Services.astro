@@ -1,25 +1,45 @@
 ---
 interface Service {
   title: string;
-  description: string;
+  description: string[];
   icon: string;
 }
 
 const services: Service[] = [
   {
-    title: "Développement Web",
-    description: "Création de sites web modernes et performants",
-    icon: "💻",
+    title: "Développement Web Fullstack",
+    description: [
+      "Conception de sites web responsives et performants.",
+      "Développement d'applications web (+PWA).",
+      "Intégration API et gestion des bases de données.",
+    ],
+    icon: "FiCode",
   },
   {
-    title: "Applications Web",
-    description: "Développement d'applications web sur mesure",
-    icon: "🚀",
+    title: "Développement Mobile",
+    description: [
+      "Développement d'applications mobiles hybrides.",
+      "Création d'applications iOS et Android avec React Native.",
+      "Optimisation des performances et de l'expérience utilisateur.",
+    ],
+    icon: "FiSmartphone",
   },
   {
-    title: "Optimisation SEO",
-    description: "Amélioration de la visibilité de votre site",
-    icon: "🔍",
+    title: "Optimisation de Performance",
+    description: [
+      "Audits techniques et amélioration des performances.",
+      "Optimisation SEO et des temps de chargement.",
+    ],
+    icon: "FiZap",
+  },
+  {
+    title: "Consultation et Formation",
+    description: [
+      "Conseil pour les entreprises souhaitant migrer vers des solutions modernes.",
+      "Formations personnalisées sur les technologies utilisées.",
+      "Analyse des besoins techniques.",
+    ],
+    icon: "FiHelpCircle",
   },
 ];
 ---
@@ -30,13 +50,75 @@ const services: Service[] = [
       Mes Services
     </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {
-        services.map((service) => (
-          <div class="bg-gray-900 p-6 rounded-lg hover:bg-gray-800 transition-colors">
-            <div class="text-4xl mb-4">{service.icon}</div>
-            <h3 class="text-xl font-semibold mb-2">{service.title}</h3>
-            <p class="text-gray-300">{service.description}</p>
+        services.map((service, index) => (
+          <div
+            class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:scale-105 transition-all duration-300 animate-fade-in"
+            style={`animation-delay: ${index * 0.1}s`}
+          >
+            <div class="text-4xl mb-4 flex justify-center">
+              <svg
+                class="w-12 h-12 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                {service.icon === "FiCode" && (
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                  />
+                )}
+                {service.icon === "FiSmartphone" && (
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+                  />
+                )}
+                {service.icon === "FiZap" && (
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
+                )}
+                {service.icon === "FiHelpCircle" && (
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                )}
+              </svg>
+            </div>
+            <h3 class="text-xl font-bold mb-4 text-center">{service.title}</h3>
+            <ul class="space-y-2">
+              {service.description.map((item) => (
+                <li class="text-sm text-gray-300 flex items-start">
+                  <svg
+                    class="w-4 h-4 text-purple-600 mr-2 mt-1"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         ))
       }
