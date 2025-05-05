@@ -1,0 +1,97 @@
+---
+interface SocialLink {
+  name: string;
+  url: string;
+  icon: string;
+}
+
+const socialLinks: SocialLink[] = [
+  {
+    name: "GitHub",
+    url: "https://github.com/nayru",
+    icon: "github",
+  },
+  {
+    name: "LinkedIn",
+    url: "https://linkedin.com/in/nayru",
+    icon: "linkedin",
+  },
+  {
+    name: "Twitter",
+    url: "https://twitter.com/nayru",
+    icon: "twitter",
+  },
+];
+---
+
+<footer class="bg-[#101010] text-white py-12">
+  <div class="container mx-auto px-4">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- À propos -->
+      <div>
+        <h3 class="text-xl font-bold mb-4">Code by Nayru</h3>
+        <p class="text-gray-300">
+          Développeur web passionné, créant des solutions web modernes et
+          performantes.
+        </p>
+      </div>
+
+      <!-- Liens rapides -->
+      <div>
+        <h3 class="text-xl font-bold mb-4">Liens rapides</h3>
+        <ul class="space-y-2">
+          <li>
+            <a
+              href="#services"
+              class="text-gray-300 hover:text-purple-600 transition-colors"
+              >Services</a
+            >
+          </li>
+          <li>
+            <a
+              href="#tarifs"
+              class="text-gray-300 hover:text-purple-600 transition-colors"
+              >Tarifs</a
+            >
+          </li>
+          <li>
+            <a
+              href="#contact"
+              class="text-gray-300 hover:text-purple-600 transition-colors"
+              >Contact</a
+            >
+          </li>
+        </ul>
+      </div>
+
+      <!-- Réseaux sociaux -->
+      <div>
+        <h3 class="text-xl font-bold mb-4">Réseaux sociaux</h3>
+        <div class="flex space-x-4">
+          {
+            socialLinks.map((link) => (
+              <a
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-gray-300 hover:text-purple-600 transition-colors"
+                aria-label={link.name}
+              >
+                <span class="sr-only">{link.name}</span>
+                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                  <use href={`/icons/${link.icon}.svg#icon`} />
+                </svg>
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </div>
+
+    <div class="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+      <p>
+        &copy; {new Date().getFullYear()} Code by Nayru. Tous droits réservés.
+      </p>
+    </div>
+  </div>
+</footer>
