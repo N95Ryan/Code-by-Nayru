@@ -1,18 +1,88 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = "Code by Nayru • Développement Web & Mobile",
+  description = "Freelance spécialisé dans le développement de solutions digitales sur mesure, je transforme vos idées en applications web et mobiles performantes. Ma mission : contribuer à des projets ambitieux où l'innovation et l'expertise technique font la différence. J'accompagne votre transformation numérique avec passion et professionnalisme.",
+} = Astro.props;
+
+const keywords =
+  "Freelance, Développeur indépendant, Solutions digitales, Transformation numérique, Développement d'applications, Applications web, Applications mobiles, Solutions sur mesure, Architecture logicielle, Cloud computing, Sécurité informatique, Performance, Scalabilité, JavaScript, TypeScript, Go, Golang, React, Next.js, Astro, React Native, Node.js, PostgreSQL, Supabase, Git, GitHub, GitLab, Docker, Vercel, Render, GraphQL, Web Push API, REST API, Tailwind CSS, Postman, DevOps, CI/CD, Cloud native, Infrastructure as Code, Monitoring, Analytics, Business Intelligence, UX/UI Design, Responsive design, Progressive Web Apps, E-commerce, B2B, B2C, SaaS, Applications métier, Automatisation, Innovation technologique, Expertise technique, Conseil IT, Audit technique, Maintenance évolutive, Support technique, Formation technique, Agile, Scrum, MVP, PWA, Applications web progressives, Sites vitrines, E-commerce, Applications sur mesure";
+---
+
 <!doctype html>
 <html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>Code by Nayru • Développement Web & Mobile</title>
+
+    <!-- SEO -->
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <meta name="keywords" content={keywords} />
+    <meta name="author" content="Code by Nayru" />
+    <meta name="robots" content="index, follow" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://codebynayru.com/" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta
+      property="og:image"
+      content="https://codebynayru.com/images/og-image.jpg"
+    />
+    <meta property="og:site_name" content="Code by Nayru" />
+    <meta property="og:locale" content="fr_FR" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content="https://codebynayru.com/" />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta
+      property="twitter:image"
+      content="https://codebynayru.com/images/og-image.jpg"
+    />
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://codebynayru.com/" />
+
+    <!-- Additional Meta Tags -->
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+    <meta name="application-name" content="Code by Nayru" />
+    <meta name="msapplication-TileColor" content="#000000" />
+    <meta name="msapplication-config" content="/browserconfig.xml" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-touch-fullscreen" content="yes" />
+    <meta name="apple-mobile-web-app-title" content="Code by Nayru" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <meta name="coverage" content="Worldwide" />
+    <meta name="target" content="all" />
+    <meta name="audience" content="all" />
+    <meta name="page-topic" content="Technology" />
+    <meta name="page-type" content="Business" />
+    <meta name="revisit-after" content="7 days" />
+    <meta name="language" content="French" />
   </head>
   <body class="relative min-h-screen text-white overflow-x-hidden">
     <!-- Image de fond -->
     <div class="fixed inset-0 z-0 w-full h-full">
       <img
         src="/images/bg.png"
-        alt="Fond d'écran abstrait"
+        alt="Arrière-plan professionnel"
         class="w-full h-full object-cover object-center select-none pointer-events-none"
         aria-hidden="true"
       />
