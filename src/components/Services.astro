@@ -50,16 +50,16 @@ const services: Service[] = [
       Mes Services
     </h2>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
       {
         services.map((service, index) => (
           <div
-            class="bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:scale-105 transition-all duration-300 animate-fade-in"
+            class="bg-white/5 backdrop-blur-sm border border-white/30 rounded-2xl p-4 sm:p-6 hover:scale-105 transition-all duration-300 animate-fade-in"
             style={`animation-delay: ${index * 0.1}s`}
           >
-            <div class="text-4xl mb-4 flex justify-center">
+            <div class="text-3xl sm:text-4xl mb-3 sm:mb-4 flex justify-center">
               <svg
-                class="w-12 h-12 text-white"
+                class="w-8 h-8 sm:w-12 sm:h-12 text-white"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -98,12 +98,14 @@ const services: Service[] = [
                 )}
               </svg>
             </div>
-            <h3 class="text-xl font-bold mb-4 text-center">{service.title}</h3>
-            <ul class="space-y-2">
+            <h3 class="text-lg sm:text-xl font-bold mb-3 sm:mb-4 text-center">
+              {service.title}
+            </h3>
+            <ul class="space-y-1 sm:space-y-2">
               {service.description.map((item) => (
-                <li class="text-sm text-gray-300 flex items-start">
+                <li class="text-xs sm:text-sm text-gray-300 flex items-start">
                   <svg
-                    class="w-4 h-4 text-purple-600 mr-2 mt-1"
+                    class="w-3 h-3 sm:w-4 sm:h-4 text-purple-600 mr-2 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
