@@ -50,9 +50,12 @@ const plans: PricingPlan[] = [
 
     <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
       {
-        plans.map((plan) => (
+        plans.map((plan, index) => (
           <div
-            class={`bg-gray-900 p-8 rounded-lg ${plan.isPopular ? "border-2 border-purple-600" : ""}`}
+            class={`bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:scale-105 transition-all duration-300 animate-fade-in ${
+              plan.isPopular ? "border-purple-600" : ""
+            }`}
+            style={`animation-delay: ${index * 0.1}s`}
           >
             {plan.isPopular && (
               <div class="bg-purple-600 text-white text-sm font-bold px-4 py-1 rounded-full inline-block mb-4">
@@ -60,12 +63,14 @@ const plans: PricingPlan[] = [
               </div>
             )}
             <h3 class="text-2xl font-bold mb-4">{plan.name}</h3>
-            <div class="text-4xl font-bold mb-6">{plan.price}</div>
-            <ul class="space-y-3 mb-8">
+            <div class="text-4xl font-bold mb-6 text-purple-400">
+              {plan.price}
+            </div>
+            <ul class="space-y-4 mb-8">
               {plan.features.map((feature) => (
-                <li class="flex items-center">
+                <li class="flex items-start text-gray-300">
                   <svg
-                    class="w-5 h-5 text-purple-600 mr-2"
+                    class="w-5 h-5 text-purple-600 mr-3 mt-1"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -83,7 +88,11 @@ const plans: PricingPlan[] = [
             </ul>
             <a
               href="#contact"
-              class="block w-full bg-purple-600 hover:bg-purple-700 text-white text-center py-3 rounded-lg transition-colors"
+              class={`block w-full text-center py-3 rounded-lg transition-colors ${
+                plan.isPopular
+                  ? "bg-purple-600 hover:bg-purple-700"
+                  : "bg-white/10 hover:bg-white/20"
+              }`}
             >
               Choisir ce plan
             </a>
