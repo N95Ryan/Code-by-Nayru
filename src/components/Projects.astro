@@ -42,19 +42,21 @@ const projects: Project[] = [
           >
             <div class="flex items-center justify-center min-h-[200px] sm:min-h-[300px]">
               <div class="flex flex-col items-center gap-3 sm:gap-4">
-                <img
-                  src={project.image}
-                  alt={`Logo ${project.title}`}
-                  class="w-20 h-20 sm:w-32 sm:h-32 object-contain rounded-xl"
-                />
                 <a
                   href={project.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  class="text-lg sm:text-xl font-bold text-center hover:text-white/80 transition-colors duration-300"
+                  class="hover:opacity-80 transition-opacity duration-300"
                 >
-                  {project.title}
+                  <img
+                    src={project.image}
+                    alt={`Logo ${project.title}`}
+                    class="w-20 h-20 sm:w-32 sm:h-32 object-contain rounded-xl"
+                  />
                 </a>
+                <h3 class="text-lg sm:text-xl font-bold text-center">
+                  {project.title}
+                </h3>
                 <p class="text-gray-300 text-xs sm:text-sm text-center">
                   {project.description}
                 </p>
