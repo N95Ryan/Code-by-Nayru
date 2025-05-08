@@ -4,6 +4,12 @@ export function initContactForm(): void {
   const errorMessage = document.getElementById("error-message");
   const submitButton = form?.querySelector<HTMLButtonElement>("button[type='submit']");
 
+  // Fonction pour déterminer l'URL de l'API
+  const getApiUrl = (): string => {
+    const isLocalhost = window.location.hostname === 'localhost';
+    return isLocalhost ? 'http://localhost:8080/api/contact' : 'https://code-by-nayru-back.railway.app/api/contact';
+  };
+
   if (form && successMessage && errorMessage && submitButton) {
     let lastSubmitTime = 0;
     const MIN_SUBMIT_INTERVAL = 30000; // 30 secondes
@@ -35,7 +41,10 @@ export function initContactForm(): void {
           message: formData.get("message"),
         };
 
-        const response = await fetch("/api/contact", {
+        console.log("Envoi de la requête à:", getApiUrl());
+        console.log("Données envoyées:", data);
+
+        const response = await fetch(getApiUrl(), {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -43,7 +52,9 @@ export function initContactForm(): void {
           body: JSON.stringify(data),
         });
 
+        console.log("Réponse reçue:", response.status);
         const result = await response.json();
+        console.log("Données de la réponse:", result);
 
         if (response.ok) {
           form.reset();

@@ -66,15 +66,38 @@
         </form>
 
         <!-- Messages de statut -->
-        <div class="hidden mt-4 text-center" id="success-message">
-          <p class="text-green-400 font-medium">
-            Message envoyé avec succès ! Je vous répondrai dans les plus brefs
-            délais.
+        <div class="hidden mt-4 p-4 rounded-lg" id="success-message">
+          <p class="text-green-500 font-medium flex items-center">
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"></path>
+            </svg>
+            Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.
           </p>
         </div>
 
-        <div class="hidden mt-4 text-center" id="error-message">
-          <p class="text-red-400 font-medium">
+        <div class="hidden mt-4 p-4 rounded-lg" id="error-message">
+          <p class="text-red-500 font-medium flex items-center">
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
             Une erreur est survenue. Veuillez réessayer.
           </p>
         </div>
