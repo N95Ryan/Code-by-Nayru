@@ -4,11 +4,8 @@ export function initContactForm(): void {
   const errorMessage = document.getElementById("error-message");
   const submitButton = form?.querySelector<HTMLButtonElement>("button[type='submit']");
 
-  // Fonction pour déterminer l'URL de l'API
-  const getApiUrl = (): string => {
-    const isLocalhost = window.location.hostname === 'localhost';
-    return isLocalhost ? 'http://localhost:8080/api/contact' : 'https://code-by-nayru-back.railway.app/api/contact';
-  };
+  // URL de l'API en production
+  const API_URL = "https://code-by-nayru-back-production.up.railway.app/api/contact";
 
   if (form && successMessage && errorMessage && submitButton) {
     let lastSubmitTime = 0;
@@ -41,13 +38,14 @@ export function initContactForm(): void {
           message: formData.get("message"),
         };
 
-        console.log("Envoi de la requête à:", getApiUrl());
+        console.log("Envoi de la requête à:", API_URL);
         console.log("Données envoyées:", data);
 
-        const response = await fetch(getApiUrl(), {
+        const response = await fetch(API_URL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "Origin": window.location.origin,
           },
           body: JSON.stringify(data),
         });
