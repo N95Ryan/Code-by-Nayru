@@ -4,8 +4,8 @@ export function initContactForm(): void {
   const errorMessage = document.getElementById("error-message");
   const submitButton = form?.querySelector<HTMLButtonElement>("button[type='submit']");
 
-  // URL de l'API en production
-  const API_URL = "https://code-by-nayru-back-production.up.railway.app/api/contact";
+  // URL de l'API depuis les variables d'environnement
+  const API_URL = import.meta.env.VITE_API_URL || "https://code-by-nayru-back-production.up.railway.app/api/contact";
 
   if (form && successMessage && errorMessage && submitButton) {
     let lastSubmitTime = 0;
@@ -40,6 +40,7 @@ export function initContactForm(): void {
 
         console.log("Envoi de la requête à:", API_URL);
         console.log("Données envoyées:", data);
+        console.log("Origine:", window.location.origin);
 
         const response = await fetch(API_URL, {
           method: "POST",
@@ -48,9 +49,12 @@ export function initContactForm(): void {
             "Origin": window.location.origin,
           },
           body: JSON.stringify(data),
+          credentials: "include",
         });
 
         console.log("Réponse reçue:", response.status);
+        console.log("Headers de la réponse:", Object.fromEntries(response.headers.entries()));
+
         const result = await response.json();
         console.log("Données de la réponse:", result);
 
@@ -61,7 +65,7 @@ export function initContactForm(): void {
           errorMessage.classList.add("hidden");
           lastSubmitTime = now;
         } else {
-          errorMessage.textContent = result.message;
+          errorMessage.textContent = result.message || "Une erreur est survenue. Veuillez réessayer.";
           errorMessage.classList.remove("hidden");
           successMessage.classList.add("hidden");
         }
@@ -71,6 +75,7 @@ export function initContactForm(): void {
           errorMessage.classList.add("hidden");
         }, 5000);
       } catch (error) {
+        console.error("Erreur détaillée:", error);
         errorMessage.textContent = "Une erreur est survenue. Veuillez réessayer.";
         errorMessage.classList.remove("hidden");
         successMessage.classList.add("hidden");
