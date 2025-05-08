@@ -1,27 +1,5 @@
 ---
-interface ContactInfo {
-  icon: string;
-  label: string;
-  value: string;
-}
 
-const contactInfo: ContactInfo[] = [
-  {
-    icon: "📧",
-    label: "Email",
-    value: "contact@codebynayru.com",
-  },
-  {
-    icon: "📱",
-    label: "Téléphone",
-    value: "+33 6 12 34 56 78",
-  },
-  {
-    icon: "📍",
-    label: "Localisation",
-    value: "Paris, France",
-  },
-];
 ---
 
 <section id="contact" class="py-20 text-white">
@@ -34,11 +12,7 @@ const contactInfo: ContactInfo[] = [
       <div
         class="bg-white/5 backdrop-blur-sm border border-white/30 rounded-2xl p-8"
       >
-        <form
-          class="space-y-6"
-          action="https://formspree.io/f/rpina.pro@gmail.com"
-          method="POST"
-        >
+        <form class="space-y-6" action="/api/contact" method="POST">
           <div>
             <label for="name" class="block text-sm font-medium mb-2">Nom</label>
             <input
@@ -92,17 +66,39 @@ const contactInfo: ContactInfo[] = [
         </form>
 
         <!-- Messages de statut -->
-        <div class="hidden mt-4 text-center" id="success-message">
-          <p class="text-green-400 font-medium">
-            Message envoyé avec succès ! Je vous répondrai dans les plus brefs
-            délais.
+        <div class="hidden mt-4 p-4 rounded-lg" id="success-message">
+          <p class="text-green-500 font-medium flex items-center">
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M5 13l4 4L19 7"></path>
+            </svg>
+            Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais.
           </p>
         </div>
 
-        <div class="hidden mt-4 text-center" id="error-message">
-          <p class="text-red-400 font-medium">
-            Une erreur est survenue. Veuillez réessayer ou me contacter
-            directement par email.
+        <div class="hidden mt-4 p-4 rounded-lg" id="error-message">
+          <p class="text-red-500 font-medium flex items-center">
+            <svg
+              class="w-5 h-5 mr-2"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            Une erreur est survenue. Veuillez réessayer.
           </p>
         </div>
       </div>
