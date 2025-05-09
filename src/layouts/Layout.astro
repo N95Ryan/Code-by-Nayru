@@ -1,6 +1,8 @@
 ---
 import { getTranslator } from "../i18n";
 import LocaleSwitch from "../components/LocaleSwitch.astro";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/astro";
 
 interface Props {
   title?: string;
@@ -124,5 +126,7 @@ const canonicalUrl = `https://codebynayru.com/${lang}/`;
       </div>
       <slot />
     </div>
+    <Analytics />
+    <SpeedInsights />
   </body>
 </html>

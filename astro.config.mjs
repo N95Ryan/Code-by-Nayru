@@ -2,10 +2,12 @@
 import { defineConfig } from 'astro/config';
 import tailwind from '@astrojs/tailwind';
 import astroI18next from 'astro-i18next';
+import vercel from '@astrojs/vercel/edge';
 
 // https://astro.build/config
 export default defineConfig({
-  output: 'static',
+  output: 'server',
+  adapter: vercel(),
   site: 'https://code-by-nayru.vercel.app',
   integrations: [
     tailwind(),
