@@ -1,20 +1,39 @@
 ---
+import LocaleSwitch from "../components/LocaleSwitch.astro";
+import { getTranslator } from "../i18n";
+
 interface Props {
   title?: string;
   description?: string;
+  lang: "fr" | "en";
 }
 
 const {
   title = "Code by Nayru • Développement Web & Mobile",
   description = "Studio freelance de développement web et mobile, spécialisé dans la création de solutions performantes, modernes et scalables.",
+  lang,
 } = Astro.props;
 
-const keywords =
-  "Freelance, Développeur indépendant, Solutions digitales, Transformation numérique, Développement d'applications, Applications web, Applications mobiles, Solutions sur mesure, Architecture logicielle, Cloud computing, Sécurité informatique, Performance, Scalabilité, JavaScript, TypeScript, Go, Golang, React, Next.js, Astro, React Native, Node.js, PostgreSQL, Supabase, Git, GitHub, GitLab, Docker, Vercel, Render, GraphQL, Web Push API, REST API, Tailwind CSS, Postman, DevOps, CI/CD, Cloud native, Infrastructure as Code, Monitoring, Analytics, Business Intelligence, UX/UI Design, Responsive design, Progressive Web Apps, E-commerce, B2B, B2C, SaaS, Applications métier, Automatisation, Innovation technologique, Expertise technique, Conseil IT, Audit technique, Maintenance évolutive, Support technique, Formation technique, Agile, Scrum, MVP, PWA, Applications web progressives, Sites vitrines, E-commerce, Applications sur mesure";
+// Redirection vers le français si la langue n'est pas spécifiée
+if (!lang) {
+  return Astro.redirect("/fr/");
+}
+
+const t = getTranslator(lang);
+
+// Traductions des métadonnées
+const metaTitle =
+  lang === "fr" ? title : "Code by Nayru • Web & Mobile Development";
+const metaDescription =
+  lang === "fr"
+    ? description
+    : "Freelance web and mobile development studio, specialized in creating performant, modern and scalable solutions.";
+const metaLanguage = lang === "fr" ? "French" : "English";
+const metaLocale = lang === "fr" ? "fr_FR" : "en_US";
 ---
 
 <!doctype html>
-<html lang="fr">
+<html lang={lang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -22,29 +41,28 @@ const keywords =
     <meta name="generator" content={Astro.generator} />
 
     <!-- SEO -->
-    <title>{title}</title>
-    <meta name="description" content={description} />
-    <meta name="keywords" content={keywords} />
+    <title>{metaTitle}</title>
+    <meta name="description" content={metaDescription} />
     <meta name="author" content="Code by Nayru" />
     <meta name="robots" content="index, follow" />
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://codebynayru.com/" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={metaTitle} />
+    <meta property="og:description" content={metaDescription} />
     <meta
       property="og:image"
       content="https://codebynayru.com/images/og-image.jpg"
     />
     <meta property="og:site_name" content="Code by Nayru" />
-    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:locale" content={metaLocale} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content="https://codebynayru.com/" />
-    <meta property="twitter:title" content={title} />
-    <meta property="twitter:description" content={description} />
+    <meta property="twitter:title" content={metaTitle} />
+    <meta property="twitter:description" content={metaDescription} />
     <meta
       property="twitter:image"
       content="https://codebynayru.com/images/og-image.jpg"
@@ -75,7 +93,7 @@ const keywords =
     <meta name="page-topic" content="Technology" />
     <meta name="page-type" content="Business" />
     <meta name="revisit-after" content="7 days" />
-    <meta name="language" content="French" />
+    <meta name="language" content={metaLanguage} />
   </head>
   <body class="relative min-h-screen text-white overflow-x-hidden">
     <!-- Image de fond -->
@@ -90,6 +108,9 @@ const keywords =
     </div>
     <!-- Contenu principal -->
     <div class="relative z-10">
+      <div class="fixed top-4 right-4 z-50">
+        <LocaleSwitch />
+      </div>
       <slot />
     </div>
   </body>

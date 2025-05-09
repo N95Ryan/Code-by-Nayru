@@ -1,26 +1,30 @@
 ---
+import { getTranslator } from "../i18n";
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = getTranslator(lang as "fr" | "en");
+
 interface Project {
-  title: string;
+  key: string;
   image: string;
-  description: string;
   link: string;
   color: string;
 }
 
 const projects: Project[] = [
   {
-    title: "Spotr",
+    key: "spotr",
     image: "/images/clients/logo_spotr.png",
-    description:
-      "Application mobile dédiée aux photographes, pour repérer et enregistrer des spots photo à travers le monde.",
     link: "https://apps.apple.com/fr/app/spotr-tous-les-spots-photo/id1151859681",
     color: "#07e7a8",
   },
   {
-    title: "Neat • Barber Shop",
+    key: "neat",
     image: "/images/clients/logo_neat.png",
-    description:
-      "Site vitrine moderne pour le salon de barbier Neat Paris, réalisé sur mesure pour refléter l'univers de la marque.",
     link: "https://neatparis.fr",
     color: "#a3b5c4",
   },
@@ -30,7 +34,7 @@ const projects: Project[] = [
 <section id="projects" class="py-20 text-white">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
-      Réalisations
+      {t("projects.title")}
     </h2>
 
     <div class="grid grid-cols-2 gap-4 sm:gap-6 max-w-4xl mx-auto">
@@ -50,15 +54,15 @@ const projects: Project[] = [
                 >
                   <img
                     src={project.image}
-                    alt={`Logo ${project.title}`}
+                    alt={`Logo ${t(`projects.${project.key}.title`)}`}
                     class="w-20 h-20 sm:w-32 sm:h-32 object-contain rounded-xl"
                   />
                 </a>
                 <h3 class="text-lg sm:text-xl font-bold text-center">
-                  {project.title}
+                  {t(`projects.${project.key}.title`)}
                 </h3>
                 <p class="text-gray-300 text-xs sm:text-sm text-center">
-                  {project.description}
+                  {t(`projects.${project.key}.description`)}
                 </p>
               </div>
             </div>
