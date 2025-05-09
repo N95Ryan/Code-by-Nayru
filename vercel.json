@@ -1,16 +1,16 @@
 {
   "buildCommand": "npm run build",
   "outputDirectory": "dist",
-  "routes": [
+  "redirects": [
     {
-      "src": "/",
-      "dest": "/fr/",
-      "status": 301
+      "source": "/",
+      "destination": "/fr/",
+      "permanent": true
     },
     {
-      "src": "/(?!fr/|en/).*",
-      "dest": "/fr/$1",
-      "status": 301
+      "source": "/(?!fr/|en/).*",
+      "destination": "/fr/$1",
+      "permanent": true
     }
   ],
   "trailingSlash": true,
