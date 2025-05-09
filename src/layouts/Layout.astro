@@ -1,6 +1,8 @@
 ---
-import LocaleSwitch from "../components/LocaleSwitch.astro";
 import { getTranslator } from "../i18n";
+import LocaleSwitch from "../components/LocaleSwitch.astro";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/astro";
 
 interface Props {
   title?: string;
@@ -30,6 +32,9 @@ const metaDescription =
     : "Freelance web and mobile development studio, specialized in creating performant, modern and scalable solutions.";
 const metaLanguage = lang === "fr" ? "French" : "English";
 const metaLocale = lang === "fr" ? "fr_FR" : "en_US";
+
+// URL canonique avec la langue
+const canonicalUrl = `https://codebynayru.com/${lang}/`;
 ---
 
 <!doctype html>
@@ -48,7 +53,7 @@ const metaLocale = lang === "fr" ? "fr_FR" : "en_US";
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://codebynayru.com/" />
+    <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={metaTitle} />
     <meta property="og:description" content={metaDescription} />
     <meta
@@ -60,7 +65,7 @@ const metaLocale = lang === "fr" ? "fr_FR" : "en_US";
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="https://codebynayru.com/" />
+    <meta property="twitter:url" content={canonicalUrl} />
     <meta property="twitter:title" content={metaTitle} />
     <meta property="twitter:description" content={metaDescription} />
     <meta
@@ -69,7 +74,7 @@ const metaLocale = lang === "fr" ? "fr_FR" : "en_US";
     />
 
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://codebynayru.com/" />
+    <link rel="canonical" href={canonicalUrl} />
 
     <!-- Additional Meta Tags -->
     <meta name="format-detection" content="telephone=no" />
@@ -92,8 +97,16 @@ const metaLocale = lang === "fr" ? "fr_FR" : "en_US";
     <meta name="audience" content="all" />
     <meta name="page-topic" content="Technology" />
     <meta name="page-type" content="Business" />
-    <meta name="revisit-after" content="7 days" />
     <meta name="language" content={metaLanguage} />
+
+    <!-- Preload des polices -->
+    <link
+      rel="preload"
+      href="/fonts/inter-var.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
   </head>
   <body class="relative min-h-screen text-white overflow-x-hidden">
     <!-- Image de fond -->
@@ -113,5 +126,7 @@ const metaLocale = lang === "fr" ? "fr_FR" : "en_US";
       </div>
       <slot />
     </div>
+    <Analytics />
+    <SpeedInsights />
   </body>
 </html>

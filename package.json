@@ -9,7 +9,10 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/vercel": "^8.1.4",
     "@types/i18next": "^12.1.0",
+    "@vercel/analytics": "^1.2.2",
+    "@vercel/speed-insights": "^1.0.8",
     "astro": "^5.7.10",
     "astro-i18n": "^2.2.4",
     "astro-i18next": "^1.0.0-beta.21",
@@ -20,6 +23,7 @@
   },
   "devDependencies": {
     "@astrojs/tailwind": "^5.1.0",
+    "@vercel/node": "^5.1.15",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1"
