@@ -1,4 +1,13 @@
 ---
+import { getTranslator } from "../i18n";
+
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = getTranslator(lang as "fr" | "en");
+
 const currentYear = new Date().getFullYear();
 
 const icons = {
@@ -59,7 +68,7 @@ const icons = {
     <!-- Copyright -->
     <div class="text-center">
       <p class="text-sm text-gray-400">
-        © {currentYear} Code by Nayru. Tous droits réservés.
+        © {currentYear} Code by Nayru. {t("footer.copyright")}
       </p>
     </div>
   </div>

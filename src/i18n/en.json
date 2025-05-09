@@ -1,0 +1,106 @@
+{
+  "hero": {
+    "title": "Code by Nayru",
+    "subtitle": "Web & Mobile Development"
+  },
+  "about": {
+    "title": "About",
+    "description": "Code by Nayru is a French micro-enterprise specialized in web and mobile development. I create custom solutions for freelancers, startups, and SMEs, focusing on quality, innovation, and user experience.",
+    "goal": {
+      "title": "🎯 My goal is simple :",
+      "description": "Help businesses and entrepreneurs bring their digital projects to life with modern, performant, and scalable solutions."
+    }
+  },
+  "services": {
+    "title": "My services",
+    "description": "I offer custom solutions for freelancers, startups, and SMEs, focusing on quality, innovation, and user experience.",
+    "web": {
+      "title": "Web Development",
+      "description": [
+        "Responsive and performant website design",
+        "Web application development (+PWA)",
+        "API integration and database management"
+      ]
+    },
+    "mobile": {
+      "title": "Mobile Development",
+      "description": [
+        "Hybrid mobile application development",
+        "iOS and Android app creation with React Native",
+        "Performance and user experience optimization"
+      ]
+    },
+    "performance": {
+      "title": "Performance Optimization",
+      "description": [
+        "Technical audits and performance improvement",
+        "SEO and loading time optimization"
+      ]
+    },
+    "consulting": {
+      "title": "Consulting and Training",
+      "description": [
+        "Advice for companies looking to migrate to modern solutions",
+        "Custom training on used technologies",
+        "Technical needs analysis"
+      ]
+    }
+  },
+  "projects": {
+    "title": "Projects",
+    "spotr": {
+      "title": "Spotr",
+      "description": "Mobile application dedicated to photographers, to spot and record photo spots around the world."
+    },
+    "neat": {
+      "title": "Neat • Barber Shop",
+      "description": "Modern showcase website for Neat Paris barber shop, custom-made to reflect the brand's universe."
+    }
+  },
+  "pricing": {
+    "title": "Pricing",
+    "description": "To discuss your project or get a custom quote, feel free to contact me.",
+    "rows": [
+      {
+        "type": "Short mission",
+        "duration": "1 - 14 days",
+        "france": "450 €",
+        "international": "600 $"
+      },
+      {
+        "type": "Standard mission",
+        "duration": "1 - 3 months",
+        "france": "400 €",
+        "international": "500 $"
+      },
+      {
+        "type": "Long mission",
+        "duration": "+3 months",
+        "france": "350 €",
+        "international": "450 $"
+      },
+      {
+        "type": "Emergency",
+        "duration": "Evening / weekend",
+        "france": "500 €",
+        "international": "650 $"
+      }
+    ],
+    "labels": {
+      "france": "Daily Rate France",
+      "international": "Daily Rate International"
+    }
+  },
+  "contact": {
+    "title": "Contact me",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send",
+    "success": "Message sent successfully!",
+    "error": "An error occurred. Please try again."
+  },
+  "footer": {
+    "copyright": "All rights reserved"
+  }
+} 

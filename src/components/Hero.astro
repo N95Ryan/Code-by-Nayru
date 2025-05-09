@@ -1,11 +1,12 @@
 ---
+import { getTranslator } from "../i18n";
+
 interface Props {
-  title?: string;
-  subtitle?: string;
+  lang: string;
 }
 
-const { title = "Code by Nayru", subtitle = "Développement Web & Mobile" } =
-  Astro.props;
+const { lang } = Astro.props;
+const t = getTranslator(lang as "fr" | "en");
 ---
 
 <section
@@ -21,12 +22,12 @@ const { title = "Code by Nayru", subtitle = "Développement Web & Mobile" } =
     <h2
       class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-4 md:mb-6"
     >
-      {title}
+      {t("hero.title")}
     </h2>
     <div class="flex items-center justify-center gap-2 md:gap-4">
       <hr class="w-12 md:w-16 lg:w-20 border-gray-600" />
       <p class="text-lg sm:text-xl md:text-2xl font-light text-gray-300 px-2">
-        {subtitle}
+        {t("hero.subtitle")}
       </p>
       <hr class="w-12 md:w-16 lg:w-20 border-gray-600" />
     </div>

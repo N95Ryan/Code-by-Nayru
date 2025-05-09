@@ -1,11 +1,18 @@
 ---
+import { getTranslator } from "../i18n";
 
+interface Props {
+  lang: string;
+}
+
+const { lang } = Astro.props;
+const t = getTranslator(lang as "fr" | "en");
 ---
 
 <section id="contact" class="py-20 text-white">
   <div class="container mx-auto px-4">
     <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">
-      Contactez-moi
+      {t("contact.title")}
     </h2>
 
     <div class="max-w-2xl mx-auto">
@@ -14,7 +21,9 @@
       >
         <form class="space-y-6" action="/api/contact" method="POST">
           <div>
-            <label for="name" class="block text-sm font-medium mb-2">Nom</label>
+            <label for="name" class="block text-sm font-medium mb-2"
+              >{t("contact.name")}</label
+            >
             <input
               type="text"
               id="name"
@@ -29,7 +38,7 @@
 
           <div>
             <label for="email" class="block text-sm font-medium mb-2"
-              >Email</label
+              >{t("contact.email")}</label
             >
             <input
               type="email"
@@ -44,7 +53,7 @@
 
           <div>
             <label for="message" class="block text-sm font-medium mb-2"
-              >Message</label
+              >{t("contact.message")}</label
             >
             <textarea
               id="message"
@@ -61,7 +70,7 @@
             type="submit"
             class="w-full bg-indigo-500 hover:bg-indigo-600 text-white py-3 rounded-lg transition-colors duration-300"
           >
-            Envoyer le message
+            {t("contact.send")}
           </button>
         </form>
 
@@ -73,10 +82,7 @@
           <p
             class="text-green-400 font-medium flex items-center justify-center"
           >
-            <span
-              >Message envoyé avec succès ! Je vous répondrai dans les plus
-              brefs délais.</span
-            >
+            <span>{t("contact.success")}</span>
           </p>
         </div>
 
@@ -85,7 +91,7 @@
           id="error-message"
         >
           <p class="text-red-400 font-medium flex items-center justify-center">
-            <span>Une erreur est survenue. Veuillez réessayer.</span>
+            <span>{t("contact.error")}</span>
           </p>
         </div>
       </div>
