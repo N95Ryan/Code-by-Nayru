@@ -5,16 +5,18 @@ import astroI18next from 'astro-i18next';
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'static',
+  site: 'https://code-by-nayru.vercel.app',
   integrations: [
     tailwind(),
     astroI18next({
       defaultLocale: 'fr',
       locales: ['fr', 'en'],
       i18next: {
-        debug: true,
+        debug: false,
         initImmediate: false,
         backend: {
-          loadPath: './src/locales/{{lng}}.json',
+          loadPath: './src/i18n/{{lng}}.json',
         },
       },
       i18nextPlugins: { fsBackend: 'i18next-fs-backend' },
