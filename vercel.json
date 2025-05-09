@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "src": "/",
+      "dest": "/fr/",
+      "status": 301
+    },
+    {
+      "src": "/(?!fr/|en/).*",
+      "dest": "/fr/$1",
+      "status": 301
+    }
+  ],
+  "trailingSlash": true,
+  "cleanUrls": false
+} 
