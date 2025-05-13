@@ -7,6 +7,9 @@ export function initContactForm(): void {
   // URL de l'API depuis les variables d'environnement
   const API_URL = import.meta.env.VITE_API_URL || "https://code-by-nayru-back-production.up.railway.app/api/contact";
 
+  // Récupération de la locale actuelle
+  const currentLocale = document.documentElement.lang || "fr";
+
   if (form && successMessage && errorMessage && submitButton) {
     let lastSubmitTime = 0;
     const MIN_SUBMIT_INTERVAL = 30000; // 30 secondes
@@ -36,11 +39,13 @@ export function initContactForm(): void {
           name: formData.get("name"),
           email: formData.get("email"),
           message: formData.get("message"),
+          locale: currentLocale
         };
 
         console.log("Envoi de la requête à:", API_URL);
         console.log("Données envoyées:", data);
         console.log("Origine:", window.location.origin);
+        console.log("Locale:", currentLocale);
 
         const response = await fetch(API_URL, {
           method: "POST",
