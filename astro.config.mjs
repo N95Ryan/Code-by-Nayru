@@ -40,6 +40,19 @@ export default defineConfig({
     },
     optimizeDeps: {
       include: ['@astrojs/astro']
+    },
+    build: {
+      minify: true,
+      cssMinify: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom'],
+            'i18n-vendor': ['i18next', 'i18next-fs-backend']
+          }
+        }
+      }
     }
-  }
+  },
+  compressHTML: true
 });
