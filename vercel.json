@@ -3,11 +3,6 @@
   "outputDirectory": "dist",
   "redirects": [
     {
-      "source": "/",
-      "destination": "/fr/",
-      "permanent": true
-    },
-    {
       "source": "/(?!fr/|en/).*",
       "destination": "/fr/$1",
       "permanent": true
