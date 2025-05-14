@@ -92,11 +92,12 @@
     }
   },
   "contact": {
-    "title": "Contactez-moi",
+    "title": "Contact",
     "name": "Nom",
     "email": "Email",
+    "subject": "Objet",
     "message": "Message",
-    "send": "Envoyer",
+    "send": "Envoyer le message",
     "success": "Message envoyé avec succès !",
     "error": "Une erreur est survenue. Veuillez réessayer."
   },
