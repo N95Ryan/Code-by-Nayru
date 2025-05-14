@@ -52,6 +52,22 @@ const t = getTranslator(lang as "fr" | "en");
           </div>
 
           <div>
+            <label for="subject" class="block text-sm font-medium mb-2"
+              >{t("contact.subject")}</label
+            >
+            <input
+              type="text"
+              id="subject"
+              name="subject"
+              class="w-full px-4 py-2 bg-white/5 border border-white/30 rounded-lg text-white focus:outline-none focus:border-indigo-500"
+              required
+              minlength="3"
+              maxlength="100"
+              title="Veuillez entrer un sujet (entre 3 et 100 caractères)"
+            />
+          </div>
+
+          <div>
             <label for="message" class="block text-sm font-medium mb-2"
               >{t("contact.message")}</label
             >

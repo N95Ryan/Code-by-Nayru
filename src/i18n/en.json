@@ -92,11 +92,12 @@
     }
   },
   "contact": {
-    "title": "Contact me",
+    "title": "Contact",
     "name": "Name",
     "email": "Email",
+    "subject": "Subject",
     "message": "Message",
-    "send": "Send",
+    "send": "Send message",
     "success": "Message sent successfully!",
     "error": "An error occurred. Please try again."
   },
