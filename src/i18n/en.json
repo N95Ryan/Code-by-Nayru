@@ -5,7 +5,7 @@
   },
   "about": {
     "title": "About",
-    "description": "Code by Nayru is a French micro-enterprise specialized in web and mobile development. I create custom solutions for freelancers, startups, and SMEs, focusing on quality, innovation, and user experience.",
+    "description": "Code by Nayru is a french micro-enterprise specialized in web and mobile development. I create custom solutions for freelancers, startups, and SMEs, focusing on quality, innovation, and user experience.",
     "goal": {
       "title": "🎯 My goal is simple :",
       "description": "Help businesses and entrepreneurs bring their digital projects to life with modern, performant, and scalable solutions."
@@ -48,6 +48,10 @@
   },
   "projects": {
     "title": "Projects",
+    "sfr": {
+      "title": "SFR Business",
+      "description": "Modernization of SFR Business's internal tools to make them more efficient and easier to use."
+    }, 
     "spotr": {
       "title": "Spotr",
       "description": "Mobile application dedicated to photographers, to spot and record photo spots around the world."

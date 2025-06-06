@@ -48,6 +48,10 @@
   },
   "projects": {
     "title": "Réalisations",
+    "sfr": {
+      "title": "SFR Business",
+      "description": "Modernisation des outils internes de SFR Business pour les rendre plus performants et plus faciles à utiliser."
+    },
     "spotr": {
       "title": "Spotr",
       "description": "Application mobile dédiée aux photographes, pour repérer et enregistrer des spots photo à travers le monde."
